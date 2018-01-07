@@ -52,5 +52,6 @@ def data(file,b,by_index=0):
             #amount[k]=sum(jisuan)
     #except:
     #    print("error day",k,v)
-    return country
+    f=open("out.txt","w")
+    f.write(str(country))
 data(r'C:\Users\acer\Desktop\tst.xls',15)
