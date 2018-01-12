@@ -26,7 +26,7 @@ def data(file,b,by_index=0):
     days=list(set(colheads))
     days =[convert(day,data.datemode) for day in days]
     months=list(set(days))         #整合月份
-    #print (months)
+    #print (months.sort())
     country={}
     for rownum in range(1,nrows):
         row=table.row_values(rownum)
@@ -45,6 +45,8 @@ def data(file,b,by_index=0):
                                 #国家字典中月份列表元素填充
     newamounts={}
     #try:
+    countryamounts=[]
+    yuefen=[]
     for i in country:
         for k,v in country[i].items():
             country[i][k]=sum(v)                 #sum()计算；
@@ -52,5 +54,15 @@ def data(file,b,by_index=0):
             #amount[k]=sum(jisuan)
     #except:
     #    print("error day",k,v)
+
+        for j in range(len(months)):
+            yuefen.append(months[j])
+            #print(country[i][j])
+        #print (i)
+        #countryamounts.append(i)
+
+    #f=open("待整理金额.txt","w")
+    #f.write(str(country))
     return country
-data(r'C:\Users\acer\Desktop\tst.xls',15)
+        #print (country[i])
+data(r'C:\Users\acer\Desktop\tst.xls',19)

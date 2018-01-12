@@ -25,7 +25,7 @@ def data(file,b,by_index=0):
         colheads.append(i)
     days=list(set(colheads))
     days =[convert(day,data.datemode) for day in days]
-    months=list(set(days))         #整合月份
+    months=sorted(list(set(days)))         #整合月份
     #print (months)
     country={}
     for rownum in range(1,nrows):
@@ -52,6 +52,7 @@ def data(file,b,by_index=0):
             #amount[k]=sum(jisuan)
     #except:
     #    print("error day",k,v)
-    f=open("out.txt","w")
+    f=open("国家金额.txt","w")
     f.write(str(country))
-data(r'C:\Users\acer\Desktop\tst.xls',15)
+    return (country)
+data(r'C:\Users\acer\Desktop\tst.xls',19)
